@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ProfileTableViewCell: UITableViewCell {
+final class ProfileTableViewCell: UITableViewCell {
 
-    static let identifier = "ProfileTableViewCell"
+    static let identifier = String(describing: ProfileTableViewCell.self)
     
     private let profilePicture: UIImageView = {
         let imageView = UIImageView()
@@ -38,15 +38,14 @@ class ProfileTableViewCell: UITableViewCell {
         contentView.addSubview(profilePicture)
         contentView.addSubview(username)
         contentView.addSubview(detialProfile)
-        applyConstraints()
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // contentView
-    func applyConstraints() {
+    private func setupUI() {
         let profilePictureConstraints = [
             profilePicture.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             profilePicture.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
-    let sectionSymbols = ["person.2.fill", "calendar", "person.3.fill", "graduationcap.fill", "house.fill", "gamecontroller.fill", "", "", "questionmark", "gearshape", "lock.fill", ""]
-    let firstSectionNames = ["Friends", "Events", "Groups", "CMU", "Town Hall", "Instant Games", "See More..."]
-    let secondSectionNames = ["Add favorites..."]
-    let thirdSectionNames = ["Settings", "Privacy Shortcuts", "Help and Support"]
-    let lastSectionNames = ["Log Out"]
+    private let sectionSymbols = ["person.2.fill", "calendar", "person.3.fill", "graduationcap.fill", "house.fill", "gamecontroller.fill", "", "", "questionmark", "gearshape", "lock.fill", ""]
+    private let firstSectionNames = ["Friends", "Events", "Groups", "CMU", "Town Hall", "Instant Games", "See More..."]
+    private let secondSectionNames = ["Add favorites..."]
+    private let thirdSectionNames = ["Settings", "Privacy Shortcuts", "Help and Support"]
+    private let lastSectionNames = ["Log Out"]
     
     private let userTableView: UITableView = {
         let tableView = UITableView()
@@ -155,9 +155,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                     label.text = "Favorites"
                     label.frame.origin.y -= 5
                 }
-                
                 headerView.addSubview(label)
-                
                 return headerView
             }
             return nil

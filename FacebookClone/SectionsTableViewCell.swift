@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SectionsTableViewCell: UITableViewCell {
+final class SectionsTableViewCell: UITableViewCell {
 
-    static let identifier = "SectionsTableViewCell"
+    static let identifier = String(describing: SectionsTableViewCell.self)
     
     private let symbolImage: UIImageView = {
         let imageView = UIImageView()
@@ -33,7 +33,7 @@ class SectionsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(symbolImage)
         contentView.addSubview(labelName)
-        applyConstraints()
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
@@ -41,7 +41,7 @@ class SectionsTableViewCell: UITableViewCell {
     }
     
     // contentView
-    func applyConstraints() {
+    private func setupUI() {
         let symbolImageConstraints = [
             symbolImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             symbolImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -67,7 +67,5 @@ class SectionsTableViewCell: UITableViewCell {
         if (name == "Add favorites..." || name == "See More...") {
             labelName.textColor = .systemCyan
         }
-        
     }
-    
 }
